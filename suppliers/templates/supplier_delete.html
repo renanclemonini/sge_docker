@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+SGE - Deletar {{ object.name }}
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h3 class="display-6">Deletar Fornecedor</h3>
+    <div class="card">
+        <div class="card-body">
+            <p>Você tem certeza que deseja deletar o fornecedor "{{ object.name }}"?</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Deletar</button>
+                <a href="{% url 'category_list' %}" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

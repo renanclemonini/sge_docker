@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Criar Categoria
+{% endblock %}
+
+{% block content %}
+
+<div class="container md-4">
+  <h3 class="display-6">Cadastrar/Editar Fornecedor</h3>
+
+  <div class="card">
+    <div class="card-body">
+      <form action="{% url 'supplier_create' %}" class="form" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Salvar Fornecedor</button>
+      </form>
+    </div>
+  </div>
+  <a href="{% url 'supplier_list' %}" class="btn btn-secondary mt-3">Cancelar e Voltar para Lista de Fornecedores</a>
+</div>
+
+{% endblock %}
