@@ -2,10 +2,18 @@ FROM python:3.12-slim
 
 WORKDIR /sge
 
-RUN apt-get update && apt-get upgrade -y && apt-get clean
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 COPY . .
 
-RUN python3 -m pip install --upgrade pip && pip install -r requirements.txt
+RUN apt-get update && apt-get upgrade -y && apt-get clean
 
-CMD [ "python3", "manage.py", "runserver" ]
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
+
+# RUN python manage.py migrate
+
+EXPOSE 8000
+
+CMD [ "python3", "manage.py", "runserver", "0.0.0.0:8000" ]
