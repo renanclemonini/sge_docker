@@ -7,13 +7,11 @@ ENV PYTHONUNBUFFERED=1
 
 COPY . .
 
-RUN apt-get update && apt-get upgrade -y && apt-get clean
+RUN apt-get update && apt-get install -y bash && apt-get upgrade -y && apt-get clean
 
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-# RUN python manage.py migrate
-
 EXPOSE 8000
 
-CMD [ "python3", "manage.py", "runserver", "0.0.0.0:8000" ]
+CMD ["bash", "-c", "python3 manage.py migrate && exec python3 manage.py runserver 0.0.0.0:8000"]
