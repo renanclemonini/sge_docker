@@ -5,6 +5,9 @@ SGE - Home
 {% endblock %}
 
 {% block content %}
+  {% if ai_result %}
+    {% include 'components/_ai_result.html' %}
+  {% endif %}
 
   {% if perms.products.view_product and perms.inflows.view_inflow %}
     {% include 'components/_products_metrics.html' %}

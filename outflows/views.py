@@ -39,6 +39,7 @@ class OutflowCreateView(LoginRequiredMixin, CreateView):
         outflow: models.Outflow = form.save(commit=False)
         outflow.save()
         if utils.product_decrease(outflow):
+            utils.send_outflow_event(outflow)
             return super().form_valid(form)
 
 

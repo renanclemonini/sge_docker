@@ -2,7 +2,6 @@ from rest_framework import generics, serializers as drf_serializers
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models.deletion import ProtectedError
 from django.urls import reverse_lazy
-# from django.utils.formats import number_format
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from . import forms, models, serializers
 from brands.models import Brand
@@ -42,7 +41,6 @@ class ProductListView(LoginRequiredMixin, ListView):
 
 
 class ProductCreateView(LoginRequiredMixin, CreateView):
-    # pyrefly: ignore  # bad-override
     model = models.Product
     template_name = 'product_create.html'
     form_class = forms.ProductForm

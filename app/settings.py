@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
 
+    'ai',
     'authentication',
     'brands',
     'categories',
@@ -100,10 +101,10 @@ DATABASES = {
         'HOST': 'sge_db',
         'PORT': '5432',
     },
-    'dev': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
 }
 
 
@@ -163,3 +164,6 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
 }
+
+OPENAI_MODEL = 'gpt-4o-mini'
+OPENAI_API_KEY = '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'
