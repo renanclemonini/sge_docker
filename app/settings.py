@@ -165,5 +165,7 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
 }
 
+from decouple import config
+
 OPENAI_MODEL = 'gpt-4o-mini'
-OPENAI_API_KEY = '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'
+OPENAI_API_KEY = config('OPENAI_API_KEY')
